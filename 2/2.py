@@ -1,23 +1,17 @@
 # Necessary imports
 import matplotlib.pyplot as plt
 import numpy as np
-from IPython.display import clear_output
-from qiskit import QuantumCircuit
+
 from qiskit.circuit.library import ZFeatureMap, RealAmplitudes
-from qiskit_machine_learning.optimizers import COBYLA
 from qiskit_machine_learning.utils import algorithm_globals
 from qiskit.primitives import StatevectorSampler as Sampler, StatevectorEstimator as Estimator
 
-from sklearn.datasets import make_classification
-from sklearn.preprocessing import MinMaxScaler
-
 from qiskit_machine_learning.circuit.library import QNNCircuit
-from qiskit_machine_learning.algorithms.classifiers import NeuralNetworkClassifier
-from qiskit_machine_learning.neural_networks import EffectiveDimension, LocalEffectiveDimension
-from qiskit_machine_learning.neural_networks import SamplerQNN, EstimatorQNN
+from qiskit_machine_learning.neural_networks import EffectiveDimension
+from qiskit_machine_learning.neural_networks import SamplerQNN
 
 from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.animation import FuncAnimation
+# from matplotlib.animation import FuncAnimation
 
 
 # 관측 데이터
@@ -41,8 +35,8 @@ estimator = Estimator()
 def parity(x):
     return "{:b}".format(x).count("1") % 2
 
-for num_qubits in [1,2,3,4,5,6,7,8]:
-    for depth in [1,2,3,4,5,6,7,8,9]:
+for num_qubits in [1]:
+    for depth in [1]:
         # combine a custom feature map and ansatz into a single circuit
         qc = QNNCircuit(
             feature_map=ZFeatureMap(feature_dimension=num_qubits, reps=depth),
