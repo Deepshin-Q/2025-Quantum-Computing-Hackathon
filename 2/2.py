@@ -35,8 +35,8 @@ estimator = Estimator()
 def parity(x):
     return "{:b}".format(x).count("1") % 2
 
-for num_qubits in [1]:
-    for depth in [1]:
+for num_qubits in [1, 2, 3, 4, 5, 6, 7, 8]:
+    for depth in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
         # combine a custom feature map and ansatz into a single circuit
         qc = QNNCircuit(
             feature_map=ZFeatureMap(feature_dimension=num_qubits, reps=depth),
