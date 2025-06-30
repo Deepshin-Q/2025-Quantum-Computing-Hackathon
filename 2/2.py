@@ -10,7 +10,6 @@ from qiskit_machine_learning.circuit.library import QNNCircuit
 from qiskit_machine_learning.neural_networks import EffectiveDimension
 from qiskit_machine_learning.neural_networks import SamplerQNN
 
-from mpl_toolkits.mplot3d import Axes3D
 # from matplotlib.animation import FuncAnimation
 
 
